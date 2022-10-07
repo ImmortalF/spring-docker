@@ -1,9 +1,6 @@
 package com.code.springdockercompose.Entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -13,6 +10,7 @@ import javax.persistence.*;
 @Getter
 @ToString
 @EqualsAndHashCode
+@NoArgsConstructor
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,11 +22,9 @@ public class Customer {
     @Column(name = "last_name", nullable = false)
     private String lastname;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public Long getId() {
-        return id;
+    public Customer(String firstName, String lastname) {
+        this.firstName = firstName;
+        this.lastname = lastname;
     }
 }
